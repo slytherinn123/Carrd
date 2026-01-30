@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final Surprise 🎁</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('images/bg-final.jpeg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+
+    /* Restart Button */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 40px;
+      background: rgba(54, 192, 247, 0.9);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(21, 117, 155, 0.9);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow:
+        0 0 10px rgba(49, 118, 221, 0.6),
+        0 0 25px rgba(96, 169, 238, 0.8),
+        0 0 45px rgb(145, 147, 236);
+    }
+
+    /* Photo */
+    .my {
+      position: absolute;
+      z-index: 3;
+    }
+
+    /* Vintage Photobooth Button */
+    .photo-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 14px 26px;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      background: rgba(255, 248, 230, 0.95);
+      color: #5a3e2b;
+      border: 3px solid #5a3e2b;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow:
+        4px 4px 0 #5a3e2b,
+        inset 0 0 10px rgba(0,0,0,0.1);
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+
+    .photo-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        6px 6px 0 #5a3e2b,
+        inset 0 0 12px rgba(0,0,0,0.15);
+      background: #fff1d6;
+    }
+
+    .photo-btn span {
+      display: block;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img class="my" src="my.png" alt="">
+
+  <a href="index.html">
+    <button class="back-btn">Start Again!! 💌</button>
+  </a>
+
+  <a 
+    href="https://mysketchbooth.com/" 
+    target="_blank" 
+    class="photo-btn"
+  >
+    📸 PHOTO BOOTH
+    <span>Chalo photos le?</span>
+  </a>
+
+</body>
+</html>

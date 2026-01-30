@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Wrapped 💚</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+
+  /* 🌊 Beach background placeholder */
+  background: url("images/beach.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+/* Soft overlay for readability */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Back button */
+.back-btn {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 0.6rem;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* 🎵 Spotify Card – top right */
+.card {
+  position: absolute;
+  top: 90px;
+  right: 60px;
+
+  width: 92%;
+  max-width: 430px;
+  background: rgba(15,15,15,0.9);
+  border: 4px solid #1db954;
+  border-radius: 18px;
+  padding: 26px 20px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(29,185,84,0.6);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.big {
+  font-size: 1.5rem;
+  color: #1db954;
+  margin: 14px 0;
+}
+
+.small {
+  font-size: 0.6rem;
+  opacity: 0.85;
+}
+
+/* Spotify Code Box */
+.code-box {
+  margin: 18px auto;
+  width: 200px;
+  height: 70px;
+  background: #000;
+  border-radius: 12px;
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 15px rgba(29,185,84,0.5);
+}
+
+.code-box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.btn {
+  margin-top: 16px;
+  padding: 12px 18px;
+  border: none;
+  background: #1db954;
+  color: #000;
+  font-size: 0.6rem;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 6px 0 #0b5d2a;
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #0b5d2a;
+}
+
+.btn.secondary {
+  background: #ffffff;
+  margin-left: 8px;
+}
+
+/* Progress dots */
+.dots {
+  margin-top: 16px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #333;
+  margin: 0 4px;
+}
+
+.dot.active {
+  background: #1db954;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  font-size: 14px;
+  animation: rise 6s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes rise {
+  from { bottom: -20px; }
+  to { bottom: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="back-btn" onclick="location.href='index.html'">← BACK</div>
+
+  <div class="card">
+    <h1 id="title"></h1>
+
+    <div class="big" id="mainText"></div>
+    <div class="small" id="subText"></div>
+
+    <div class="code-box" id="codeBox">
+      <img id="codeImg">
+    </div>
+
+    <div id="buttonArea">
+      <button class="btn" onclick="nextSlide()">NEXT →</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </div>
+</div>
+
+<script>
+const slides = [
+  {
+    title: "Our Spotify Wrapped 💚",
+    main: "Just us.",
+    sub: "And No one else"
+  },
+  {
+    title: "This song tells how much ",
+    main: "I love being with you ",
+    sub: "I like me better",
+    code: "images/lauv.png"
+  },
+  {
+    title: "This song is A quest to you:-",
+    main: "Song #2",
+    sub: "❤️❤️",
+    code: "images/leah.png"
+  },
+  {
+    title: "Aapse Darkhaast hai ye:-",
+    main: "That Song",
+    sub: "🎧",
+    code: "images/Darkhaast.png"
+  },
+
+  {
+    title: "Because you never leave ",
+    main: "my mind and heart:- ",
+    sub: "💚💚.",
+    code: "images/pal pal dil ke pass.png"
+  },
+  
+  {
+    title: "Wrapped Complete",
+    main: "Jese you complete me",
+    sub: "Love Youuu",
+    end: true
+  }
+];
+
+let index = 0;
+
+/* Progress dots */
+const dots = document.getElementById("dots");
+slides.forEach((_, i) => {
+  const d = document.createElement("div");
+  d.className = "dot" + (i === 0 ? " active" : "");
+  dots.appendChild(d);
+});
+
+function updateSlide() {
+  const slide = slides[index];
+
+  document.getElementById("title").innerText = slide.title;
+  document.getElementById("mainText").innerText = slide.main;
+  document.getElementById("subText").innerText = slide.sub;
+
+  const codeBox = document.getElementById("codeBox");
+  const codeImg = document.getElementById("codeImg");
+
+  if (slide.code) {
+    codeBox.style.display = "flex";
+    codeImg.src = slide.code;
+  } else {
+    codeBox.style.display = "none";
+  }
+
+  document.querySelectorAll(".dot").forEach((d, i) =>
+    d.classList.toggle("active", i === index)
+  );
+
+  const buttonArea = document.getElementById("buttonArea");
+
+  if (slide.end) {
+    buttonArea.innerHTML = `
+      <button class="btn" onclick="replay()">REPLAY 🔁</button>
+     
+    `;
+  } else {
+    buttonArea.innerHTML = `
+      <button class="btn" onclick="nextSlide()">NEXT →</button>
+    `;
+  }
+}
+
+function nextSlide() {
+  index++;
+  if (index < slides.length) updateSlide();
+}
+
+function replay() {
+  index = 0;
+  updateSlide();
+}
+
+function goNext() {
+  location.href = "letters.html";
+}
+
+/* Floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💚";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 700);
+
+/* Init */
+updateSlide();
+</script>
+
+</body>
+</html>

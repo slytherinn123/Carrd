@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  background: #000;
+}
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.page img {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.centered-page {
+  background: #FFE6F0; /* same as question.png */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.centered-page img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.centered-page {
+  background: #FFE6F0; /* same as question.png */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.yes-container {
+  text-align: center;
+}
+
+.yes-container img {
+  max-width: 85vw;
+  max-height: 70vh;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+/* .gift-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: #ff5fa2;
+  color: white;
+  cursor: pointer;
+}
+
+.gift-btn:hover {
+  transform: scale(1.05);
+}
+.gift-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: #ff5fa2;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 95, 162, 0.6);
+  transition: all 0.3s ease;
+  margin-right: 2%;
+}
+
+.gift-btn:hover {
+  box-shadow:
+    0 0 10px rgba(255, 95, 162, 0.6),
+    0 0 25px rgba(255, 95, 162, 0.8),
+    0 0 45px rgba(255, 95, 162, 1);
+  transform: scale(1.07);
+} */
+
+.no-page {
+  background: #330000; /* dark hellish color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+}
+
+.no-page img {
+  max-width: 85vw;
+  max-height: 70vh;
+  border-radius: 20px; /* optional for rounded card look */
+  margin-bottom: 20px;
+}
+
+.no-page h1 {
+  color: #ff4d4d; /* dramatic red for text */
+  margin-bottom: 15px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 2rem;
+}
+
+.back-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  background: #ff5fa2;  /* matches YES button */
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 95, 162, 0.6);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.back-btn:hover {
+  box-shadow:
+    0 0 10px rgba(255, 95, 162, 0.6),
+    0 0 25px rgba(255, 95, 162, 0.8),
+    0 0 45px rgba(255, 95, 162, 1);
+  transform: scale(1.05);
+}
+
+.question-page {
+  background: #FFE6F0;  /* match Canva background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.question-page img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;   /* ensures it scales without distortion */
+  border-radius: 20px;   /* optional for soft look */
+}
+
+/* Floating + Wiggle + Glow */
+@keyframes floatWiggle {
+  0%   { transform: translateY(0) rotate(0deg); box-shadow: 0 0 15px rgba(255,95,162,0.6); }
+  25%  { transform: translateY(-4px) rotate(-3deg); box-shadow: 0 0 20px rgba(255,95,162,0.8); }
+  50%  { transform: translateY(0px) rotate(3deg); box-shadow: 0 0 25px rgba(255,95,162,1); }
+  75%  { transform: translateY(-3px) rotate(-2deg); box-shadow: 0 0 20px rgba(255,95,162,0.8); }
+  100% { transform: translateY(0) rotate(0deg); box-shadow: 0 0 15px rgba(255,95,162,0.6); }
+}
+
+.gift-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: #ff5fa2;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: floatWiggle 2.5s infinite;
+}
+
+.gift-btn:active {
+  transform: scale(0.95) rotate(-2deg);
+}
+
+/* Fun new gift button */
+.fun-gift-btn {
+  padding: 16px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #ff6ec7, #ff9fd6);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(255,110,199,0.5);
+  transition: all 0.3s ease;
+  animation: bounceWiggle 2s infinite;
+  margin-right: 5%;
+}
+
+/* Animation keyframes: bouncy + wiggle + pulse */
+@keyframes bounceWiggle {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  15%  { transform: translateY(-6px) rotate(-2deg) scale(1.05); }
+  30%  { transform: translateY(0) rotate(2deg) scale(1); }
+  45%  { transform: translateY(-4px) rotate(-1deg) scale(1.03); }
+  60%  { transform: translateY(0) rotate(1deg) scale(1); }
+  75%  { transform: translateY(-3px) rotate(-1deg) scale(1.02); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* Hover effect */
+.fun-gift-btn:hover {
+  box-shadow: 0 8px 20px rgba(255,110,199,0.8);
+  transform: scale(1.08);
+}
+
+/* Click press effect */
+.fun-gift-btn:active {
+  transform: scale(0.95) rotate(-2deg);
+}
+.letter,
+.envelope {
+  pointer-events: none;
+}

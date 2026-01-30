@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffcccc; /* light red anger vibe */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Trebuchet MS', sans-serif;
+      position: relative;
+    }
+
+    .no-page {
+      text-align: center;
+    }
+
+    h1 {
+      color: red;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    img {
+      max-width: 80vw;
+      max-height: 50vh;
+      margin-bottom: 15px;
+      animation: shake 0.5s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0px,0px) rotate(0deg); }
+      25% { transform: translate(-5px,0px) rotate(-5deg); }
+      50% { transform: translate(5px,0px) rotate(5deg); }
+      75% { transform: translate(-5px,0px) rotate(-5deg); }
+      100% { transform: translate(0px,0px) rotate(0deg); }
+    }
+
+    p {
+      color: #ff6666;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Back button fixed bottom-left */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 40px;
+      background: rgba(54, 192, 247, 0.911);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(21, 117, 155, 0.911);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow:  0 0 10px rgba(49, 118, 221, 0.6),
+    0 0 25px rgba(96, 169, 238, 0.8),
+    0 0 45px rgb(145, 147, 236);
+    }
+  </style>
+</head>
+<body>
+
+<div class="no-page">
+  <h1>Oh no! 😡🔥</h1>
+  <img src="images/no.gif" alt="Chaos" id="noImg">
+
+  <p>How dare you say no!!!</p>
+
+  <a href="home.html">
+    <button class="back-btn">Vapis aa jao 💌</button>
+  </a>
+</div>
+
+<!-- Confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+const noImg = document.getElementById("noImg");
+
+noImg.addEventListener("click", () => {
+  const duration = 2000; // 2 seconds
+  const interval = setInterval(() => {
+    confetti({
+      particleCount: 5,
+      spread: 60,
+      origin: { x: Math.random(), y: Math.random() * 0.6 },
+      shapes: ['text'],
+      emojis: ['🔥','💢','😡'],
+      colors: ['#ff4d4d','#ff9999','#ff1a1a'],
+      scalar: Math.random() * 0.8 + 0.8
+    });
+  }, 100);
+
+  setTimeout(() => clearInterval(interval), duration);
+});
+</script>
+
+</body>
+</html>

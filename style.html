@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess Your Surprise 😎</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: url('images/bg2.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Riddle text */
+    .riddle-text {
+      background: rgb(255, 255, 255);
+      padding: 25px 20px;
+      color: black;
+      border-radius: 20px;
+      max-width: 350px;
+      font-size: 18px;
+      line-height: 1.6;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      margin-bottom: 15px;
+    }
+
+    /* Hint GIF container */
+    .hint-gif {
+      margin-top: 15px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      max-width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .hint-gif.show {
+      opacity: 1;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: none;
+      background: #ff5fa2;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(255,95,162,0.6);
+      transition: transform 0.3s ease;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #4da6ff;
+      box-shadow: 0 0 15px rgba(77,166,255,0.6);
+      color: white;
+      border-radius: 30px;
+      border: none;
+      padding: 12px 22px;
+      cursor: pointer;
+    }
+
+    .next-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f82378;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.6s ease;
+      box-shadow: 0 0 15px rgba(255,127,179,0.6);
+      border-radius: 30px;
+      border: none;
+      padding: 12px 22px;
+      color: white;
+      cursor: pointer;
+    }
+    .next-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .next-btn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 10px rgba(233, 27, 113, 0.6),
+    0 0 25px rgba(255, 134, 185, 0.8);
+}
+
+    
+
+    /* pop animation for riddle */
+    .riddle-text.pop {
+      animation: pop 0.5s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity:0;}
+      50% { transform: scale(1.1); opacity:1;}
+      100% { transform: scale(1); opacity:1;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="riddle-text" id="riddleText">
+    My HEART I'm leaving with you <br>
+    till i come stay with you, <br>
+    take care of it <br>
+    Keep it close to you or keep it on your table
+  </div>
+
+  <button class="btn" id="revealBtn">Socho Socho</button>
+
+  <!-- GIF that will appear on reveal -->
+  <img src="images/meme.gif" alt="Cute hint GIF" class="hint-gif" id="hintGif">
+
+  <button class="back-btn" onclick="window.location.href='gifts.html'">⬅ Back</button>
+  <button class="next-btn" id="nextBtn" onclick="window.location.href='final.html'">Final Gift ✨</button>
+
+  <script>
+    const revealBtn = document.getElementById("revealBtn");
+    const hintGif = document.getElementById("hintGif");
+    const nextBtn = document.getElementById("nextBtn");
+    const riddleText = document.getElementById("riddleText");
+
+    revealBtn.addEventListener("click", () => {
+      riddleText.classList.add("pop");       // cute pop animation
+      hintGif.classList.add("show");         // show GIF instead of text
+      nextBtn.classList.add("show");         // show Next button
+      revealBtn.disabled = true;             // disable button after click
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Just for You 💌</title>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: radial-gradient(circle at top, #ffe6f0, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Trebuchet MS', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff5fa2;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .subtext {
+      color: #ff8fc4;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .scene {
+      position: relative;
+      width: 340px;
+      height: 360px;
+      cursor: pointer;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      transition: bottom 1s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .letter-text {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 210px;
+      font-family: 'Comic Sans MS', 'Segoe Script', cursive;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .envelope {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .open .letter {
+      bottom: 180px;
+    }
+
+    .open .letter-text {
+      opacity: 1;
+    }
+
+    /* tiny drama shake */
+    .open .envelope {
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(-50%) rotate(0deg); }
+      25% { transform: translateX(-50%) rotate(1deg); }
+      50% { transform: translateX(-50%) rotate(-1deg); }
+      100% { transform: translateX(-50%) rotate(0deg); }
+    }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 22px;
+      border-radius: 30px;
+      border: none;
+      background:rgba(54, 192, 247, 0.911);
+      color: white;
+      cursor: pointer;
+      box-shadow:  0 0 15px rgba(21, 117, 155, 0.911);
+      font-size: 14px;
+    }
+    .back-btn:hover {
+  box-shadow:
+    0 0 10px rgba(49, 118, 221, 0.6),
+    0 0 25px rgba(96, 169, 238, 0.8),
+    0 0 45px rgb(145, 147, 236);
+  transform: scale(1.05);
+}
+
+    .hint {
+      margin-top: 15px;
+      color: #ff5fa2;
+      font-size: 0.9rem;
+      animation: blink 1.6s infinite;
+    }
+
+.next-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ff7eb3, #ff5fa2);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(255,95,162,0.6);
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.next-btn:hover {
+  transform: scale(1.05);
+}
+
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>For You 💖</h1>
+  <div class="subtext">tap to reveal message</div>
+
+  <div class="scene" id="scene">
+    <img src="images/letter.png" class="letter">
+
+<button class="next-btn" id="nextBtn" onclick="window.location.href='care.html'">
+  Next surprise 💕
+</button>
+
+
+
+    <div class="letter-text">
+      You are my first of everything <br>
+       and you'll remain <br>
+       the last of everything.💘
+    </div>
+
+    <img src="images/envelope.png" class="envelope">
+  </div>
+
+  <div class="hint" id="hintText">tap to read 💌</div>
+
+</div>
+
+<button class="back-btn" onclick="window.location.href='gifts.html'">⬅ Back</button>
+
+<script>
+  const scene = document.getElementById("scene");
+  const hintText = document.getElementById("hintText");
+  const nextBtn = document.getElementById("nextBtn");
+
+  scene.addEventListener("click", () => {
+    scene.classList.toggle("open");
+
+    if (scene.classList.contains("open")) {
+      hintText.innerText = "tap to hide 💕";
+
+      nextBtn.style.opacity = "1";
+      nextBtn.style.transform = "translateY(0)";
+      nextBtn.style.pointerEvents = "auto";
+    } else {
+      hintText.innerText = "tap to read 💌";
+
+      nextBtn.style.opacity = "0";
+      nextBtn.style.transform = "translateY(10px)";
+      nextBtn.style.pointerEvents = "none";
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

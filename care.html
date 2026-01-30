@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess Your Gift 🎁</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background: url('images/heart-bg.jpg') no-repeat center center;
+      background-size: cover;
+      color: #000000;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+     
+    }
+
+    .riddle-box {
+      color: #000000;
+      padding: 15px 20px;
+      max-width: 380px;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      background: white; /* Remove background so pattern is consistent */
+      border-radius: 24px; /* Optional: no border for clean look */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: none;
+      background: #ff5fa2;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 22px;
+      border-radius: 30px;
+      border: none;
+      background: #4da6ff;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .next-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 22px;
+      border-radius: 30px;
+      border: none;
+      background: #f03583;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .next-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .reveal-text {
+      display: none;
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Guess This Gift 🎁</h1>
+
+  <div class="riddle-box">
+    This will stay with you whenever you're out of your house,<br>
+    it will remind you to be safe, <br>
+    also it can be used on the thing you love the most, <br>
+    guess what it is!!????😁
+  </div>
+
+  <button class="btn" id="revealBtn">Reveal Hint</button>
+
+  <div class="reveal-text" id="riddleText">
+    guessss....
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='gifts.html'">⬅ Back</button>
+  <button class="next-btn" id="nextBtn" onclick="window.location.href='style.html'">Next Gift ✨</button>
+
+  <script>
+    const revealBtn = document.getElementById("revealBtn");
+    const riddleText = document.getElementById("riddleText");
+    const nextBtn = document.getElementById("nextBtn");
+
+    revealBtn.addEventListener("click", () => {
+      riddleText.style.display = "block";
+      nextBtn.classList.add("show");
+      revealBtn.disabled = true;
+    });
+  </script>
+
+</body>
+</html>

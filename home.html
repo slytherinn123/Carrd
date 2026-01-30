@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .back-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 120, 180, 0.8);
+}
+
+  </style>
+</head>
+<body>
+
+
+<div class="question-page">
+  <img src="images/question.png" alt="Valentine Question">
+</div>
+
+
+  <!-- YES button area -->
+  <a href="yes.html" style="
+    position:absolute;
+    top:74%;
+    left:35%;
+    width:10%;
+    height:8%;
+    color: black;
+  " ></a>
+
+  <!-- NO button area -->
+  <a href="no.html" style="
+    position:absolute;
+    top:74%;
+    left:57%;
+    width:10%;
+    height:8%;
+  "></a>
+</div>
+
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+<script>
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

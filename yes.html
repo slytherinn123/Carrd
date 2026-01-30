@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine YES Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page container */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #FFE6F0; /* same as question.png */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Lucida Sans', sans-serif;
+    }
+
+    .yes-container {
+      text-align: center;
+      position: relative;
+    }
+
+    /* Heading */
+    .yes-container h1 {
+      color: rgb(224, 67, 146);
+      margin-bottom: 15px;
+    }
+
+    /* Image */
+    .yes-container img {
+      max-width: 85vw;
+      max-height: 60vh;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Fun gift button */
+    .fun-gift-btn {
+      padding: 16px 32px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff6ec7, #ff9fd6);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(255,110,199,0.5);
+      transition: all 0.3s ease;
+      animation: bounceWiggle 2s infinite;
+    }
+
+    /* Animation: bounce + wiggle + scale */
+    @keyframes bounceWiggle {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); }
+      15%  { transform: translateY(-6px) rotate(-2deg) scale(1.05); }
+      30%  { transform: translateY(0) rotate(2deg) scale(1); }
+      45%  { transform: translateY(-4px) rotate(-1deg) scale(1.03); }
+      60%  { transform: translateY(0) rotate(1deg) scale(1); }
+      75%  { transform: translateY(-3px) rotate(-1deg) scale(1.02); }
+      100% { transform: translateY(0) rotate(0deg) scale(1); }
+    }
+
+    .fun-gift-btn:hover {
+      box-shadow: 0 8px 20px rgba(255,110,199,0.8);
+      transform: scale(1.08);
+    }
+
+    .fun-gift-btn:active {
+      transform: scale(0.95) rotate(-2deg);
+    }
+
+   .back-btn-left {
+  position: fixed;   /* use fixed instead of absolute */
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  background: rgba(54, 192, 247, 0.911);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(21, 117, 155, 0.911);
+  transition: all 0.3s ease;
+  z-index: 1000;  /* high z-index so it stays on top */
+}
+
+.back-btn-left:hover {
+  box-shadow:
+    0 0 10px rgba(49, 118, 221, 0.6),
+    0 0 25px rgba(96, 169, 238, 0.8),
+    0 0 45px rgb(145, 147, 236);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+
+<div class="yes-container">
+  <h1>Awwwwwwww❤️</h1>
+  <img src="images/yes.gif" alt="Hug">
+
+  <!-- Fun gift button -->
+  <button class="fun-gift-btn" id="giftBtn">Show my gifts 🎁</button>
+
+  <!-- Back button -->
+  <a href="home.html">
+    <button class="back-btn-left">chaloo vapis 💌</button>
+  </a>
+</div>
+
+<!-- Confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+const button = document.getElementById("giftBtn");
+
+button.addEventListener("click", () => {
+  const duration = 3000; // 3 seconds
+  const colors = ['#ff6ec7','#ff9fd6','#ffccf2','#ffe6f0'];
+
+  // Fire confetti repeatedly for 3 seconds
+  const confettiInterval = setInterval(() => {
+    confetti({
+      particleCount: 6,
+      startVelocity: 30,
+      spread: 60,
+      origin: { x: Math.random(), y: Math.random() * 0.6 },
+      shapes: ['text'],
+      emojis: ['❤️'],
+      colors: colors,
+      scalar: Math.random() * 0.8 + 0.8
+    });
+  }, 100);
+
+  // Stop confetti and redirect after duration
+  setTimeout(() => {
+    clearInterval(confettiInterval);
+    window.location.href = "gifts.html";
+  }, duration);
+});
+</script>
+
+</body>
+</html>
